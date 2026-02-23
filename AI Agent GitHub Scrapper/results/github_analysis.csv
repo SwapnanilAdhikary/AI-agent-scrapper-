@@ -1,0 +1,335 @@
+﻿Rank,Repo Name,URL,Purpose,Tech Stack,Modules (Names),Modules (Detail),Module Count,Use Case Score,Code Quality Score,Library Usage Score,Overall Score,Strengths,Weaknesses,Top 3,Error
+1.0,adwit-agg/scaling-octo-eureka,https://github.com/adwit-agg/scaling-octo-eureka,"An SMS-based early warning service for flood risk assessment in the Philippines that resolves locations to coordinates and provides actionable flood safety guidance via Twilio SMS integration. The system integrates multiple data sources (PAGASA rainfall, MGB susceptibility maps, Open-Meteo forecasts) to deliver real-time risk assessments and safety recommendations.",Python + Flask + Twilio + requests + python-dotenv,"flask, requests, python-dotenv, twilio","- flask (Web Framework): Provides the web server and webhook endpoint for handling Twilio SMS requests
+- requests (HTTP Client): Handles HTTP requests to external APIs for weather data, geocoding, and government flood data
+- python-dotenv (Configuration): Loads environment variables for API keys and Twilio credentials
+- twilio (Communications): Integrates with Twilio SMS service for sending and receiving text messages",4,9,8,7,8,"- Addresses a critical real-world problem with potential life-saving impact in disaster-prone Philippines
+- Well-structured modular architecture with clear separation of concerns (parser, data, risk, sms modules)
+- Comprehensive documentation with clear setup instructions and architecture flow diagrams
+- Robust 3-tier geocoding system with fallback mechanisms and caching for reliability
+- Interactive CLI tool for testing without SMS integration
+- Smart command menu system for user interaction via SMS
+- Integration with multiple authoritative data sources (PAGASA, MGB, Open-Meteo)","- Very minimal dependency stack may limit functionality and error handling capabilities
+- No database or persistent storage beyond JSON cache file
+- Missing testing framework dependencies (no pytest, unittest coverage)
+- No logging framework specified for production monitoring and debugging
+- Limited error handling and retry mechanisms for API failures
+- No deployment configuration or containerization setup
+- Single-threaded Flask setup may not handle high SMS volume efficiently",Yes,
+2.0,xntle/sensor,https://github.com/xntle/sensor,"A comprehensive irrigation sensor simulation pipeline that simulates 10 soil-moisture sensors with realistic network conditions, processes signals through advanced filtering algorithms, and provides real-time health monitoring. It demonstrates enterprise-grade IoT sensor data processing with noise reduction, anomaly detection, and classification.",Python + Docker + MQTT (Mosquitto) + Paho-MQTT + TypeScript,"paho-mqtt, Mosquitto, Docker","- paho-mqtt (IoT/Messaging): MQTT client library for sensor data communication between hub and broker
+- Mosquitto (Message Broker): MQTT broker for handling sensor data streams and pub/sub messaging
+- Docker (Containerization): Containerization platform for deploying the VPS processing components",3,8,8,8,8,"- Comprehensive signal processing pipeline with multiple filtering stages (median, EMA, clamping)
+- Realistic network simulation with packet drops, jitter, and out-of-order handling
+- Professional health monitoring and classification system with multiple sensor states
+- Well-documented architecture with clear data flow and acceptance testing procedures
+- Production-ready deployment with Docker containerization and remote VPS hosting
+- Sophisticated noise analysis using residual variance immune to irrigation events","- No visible license which limits commercial and open-source adoption
+- Limited error handling and recovery mechanisms documented
+- Hardcoded configuration values that could benefit from external configuration files
+- No unit tests or automated testing framework visible in the repository structure
+- Security considerations for MQTT broker and remote connections not addressed",Yes,
+3.0,Vikhas/climate-hackathon,https://github.com/Vikhas/climate-hackathon,"AgriGenesis AI is an intelligent farm planning tool that analyzes aerial land imagery using multimodal AI vision models, real-time weather data, and geolocation to generate comprehensive agricultural blueprints. It's designed for hackathon participants to transform barren land into thriving farms with AI-powered analysis including crop suitability, profit projections, and sustainability scores.","React 19 + Vite 7 + Tailwind CSS 4 + Framer Motion + AI APIs (Groq, Google Gemini, Google Veo)","@google/generative-ai, @huggingface/inference, react, vite, tailwindcss, framer-motion, react-router-dom, lucide-react","- @google/generative-ai (AI/ML): Provides Google Gemini AI integration as fallback for multimodal land analysis
+- @huggingface/inference (AI/ML): Enables Hugging Face model inference for AI-powered image and video generation
+- react (Web Framework): Core React library for building the interactive farm planning interface
+- vite (Build Tool): Modern build tool providing fast development server and optimized production builds
+- tailwindcss (Styling): Utility-first CSS framework implementing dark glassmorphism UI theme
+- framer-motion (Animation): Provides smooth animations and transitions for the dashboard interface
+- react-router-dom (Routing): Handles client-side routing between landing, input flow, and dashboard pages
+- lucide-react (UI Component): Icon library providing consistent iconography across the application",8,8,7,9,8,"- Innovative use case combining AI vision, weather APIs, and agricultural planning
+- Modern tech stack with latest React 19, Vite 7, and Tailwind CSS 4
+- Well-structured project architecture with clear separation of concerns
+- Multiple AI service integrations with proper fallback mechanisms
+- Comprehensive feature set including real-time weather, location detection, and sustainability scoring
+- Professional documentation with clear setup instructions and feature descriptions","- Zero stars and forks indicate limited community engagement or visibility
+- No license specified which may limit reusability and contributions
+- Heavy dependency on external AI APIs that require API keys and may have usage costs
+- Missing automated testing setup despite having ESLint configuration
+- No Docker or deployment configuration for easy setup and hosting",Yes,
+4.0,kavishkartha05/Climate-Stack-Hackathon,https://github.com/kavishkartha05/Climate-Stack-Hackathon,A plant disease detection system built by student-farmers to identify diseases in crop leaves using deep learning models. Provides both command-line inference and a FastAPI web service for real-time plant disease classification.,Python + TensorFlow + FastAPI + scikit-learn + Computer Vision,"tensorflow, fastapi, uvicorn, scikit-learn, Pillow, numpy, matplotlib, tqdm","- tensorflow (AI/ML): Core deep learning framework for training CNN models like VGG16 and InceptionV3 for plant disease classification
+- fastapi (Web Framework): Provides REST API endpoints for uploading plant images and getting disease predictions
+- uvicorn (Web Server): ASGI server for running the FastAPI application with automatic reload capabilities
+- scikit-learn (AI/ML): Provides additional machine learning utilities and metrics for model evaluation
+- Pillow (Image Processing): Handles image loading, preprocessing, and format conversions for plant leaf images
+- numpy (Numerical Computing): Provides array operations and numerical computations for image data processing
+- matplotlib (Visualization): Creates plots and visualizations for training metrics and model performance analysis
+- tqdm (Utility): Shows progress bars during model training and batch processing operations",8,8,7,8,7,"- Addresses real agricultural problem with practical impact for farmers
+- Well-structured modular codebase with clear separation of training and inference
+- Comprehensive documentation with setup instructions and API examples
+- Modern tech stack with appropriate ML and web frameworks
+- Provides both CLI and web API interfaces for flexibility
+- Includes cloud training setup for Google Colab
+- Uses established CNN architectures (VGG16, InceptionV3) for proven performance","- No license specified, limiting reusability and legal clarity
+- Zero stars/forks indicates limited community adoption or visibility
+- Missing automated testing infrastructure and CI/CD pipeline
+- No model versioning or experiment tracking mentioned
+- Limited error handling and validation details in documentation
+- Dataset dependency requires external cloning step",No,
+5.0,Aydinm1/ClimateStack,https://github.com/Aydinm1/ClimateStack,"A real-time microclimate monitoring and risk assessment dashboard for Davis, CA that simulates 190 sensor nodes across 15 intersections to compute heat and fog risk scores and generate safety alerts. The system aims to provide block-by-block weather safety guidance for drivers, cyclists, and pedestrians by converting environmental sensor data into actionable risk assessments.",Python + FastAPI + Pydantic + React + Vite + Mantine + Mapbox GL + WebSocket,"FastAPI, Uvicorn, Pydantic, React, Vite, Mantine, Mapbox GL","- FastAPI (Web Framework): Async API server providing REST endpoints and WebSocket support for real-time data streaming
+- Uvicorn (Web Server): ASGI server for running the FastAPI application with async support
+- Pydantic (Data Validation): Data validation and model definition for API request/response schemas
+- React (Frontend Framework): Frontend user interface framework for building the dashboard components
+- Vite (Build Tool): Frontend build tool and development server for React application
+- Mantine (UI Library): UI component library providing styled components for the dashboard interface
+- Mapbox GL (Mapping): Interactive map rendering and visualization for displaying sensor locations and risk overlays",7,8,6,7,7,"- Addresses a real and important problem - hyperlocal weather safety monitoring
+- Well-architected full-stack application with modern tech choices
+- Clear separation of concerns with backend API and frontend dashboard
+- Real-time capabilities through WebSocket integration
+- Comprehensive risk assessment system with four-tier classification
+- Interactive mapping visualization for spatial data presentation
+- Practical simulation scenarios for testing different weather conditions","- Very new repository with no stars, forks, or community engagement
+- No visible license or contribution guidelines
+- Limited evidence of actual implementation beyond documentation
+- No test files or testing framework mentioned
+- Missing deployment configuration or production setup guidance
+- Unclear how actual sensor hardware integration would work
+- No error handling or reliability patterns documented",No,
+6.0,aktanazat/agro,https://github.com/aktanazat/agro,An agricultural field scouting app called FieldScout Copilot that converts voice notes from field workers into structured scouting data and time-bound recommendations. Designed for on-device processing with optional sync capabilities.,Swift/SwiftUI + TypeScript + Node.js + Cactus SDK + Vitest,"typescript, vitest","- typescript (Development Tool): Provides static typing for TypeScript code compilation and type checking
+- vitest (Testing): Modern testing framework for running unit and integration tests",2,8,7,6,7,"- Addresses real agricultural needs with voice-to-structured-data workflow
+- Well-documented with clear demo scripts and architecture plans
+- Emphasizes offline-first functionality for field conditions
+- Comprehensive planning with detailed execution timelines and integration specs
+- Considers production hardening with auth, sync, and safety reviews","- Very minimal dependency footprint suggests early development stage
+- No license specified which limits adoption potential
+- Package.json indicates Node.js backend but primary language is Swift
+- Zero stars/forks indicates no community validation yet
+- Limited actual implementation visible from dependency analysis",No,
+7.0,TheLickIn13Keys/c0mpiled-hackathon,https://github.com/TheLickIn13Keys/c0mpiled-hackathon,A wildfire risk management web application for agriculture that combines Mapbox mapping with Three.js visualization and AI-powered mitigation advice. Designed for wildfire operations teams to assess agricultural fire risks and receive location-aware prevention recommendations.,TypeScript + Next.js + Mapbox GL + Three.js + React Three Fiber + OpenAI API,"next, react, mapbox-gl, @react-three/fiber, @react-three/drei, three, lucide-react, typescript","- next (Web Framework): React-based full-stack framework providing the core application structure and API routes
+- react (Web Framework): Core React library for building the user interface components
+- mapbox-gl (Visualization): Interactive mapping library for displaying wildfire and agriculture risk data
+- @react-three/fiber (Visualization): React renderer for Three.js enabling crop resilience simulations in 3D
+- @react-three/drei (Visualization): Helper components and utilities for React Three Fiber implementations
+- three (Visualization): 3D graphics library powering the crop resilience simulation visualizations
+- lucide-react (UI): Icon library providing UI elements for the dashboard interface
+- typescript (Development): Type system ensuring code quality and development experience",8,8,7,8,7,"- Addresses a critical real-world problem of agricultural wildfire risk management
+- Modern tech stack with latest versions of React, Next.js, and visualization libraries
+- Thoughtful integration of multiple data sources (weather, air quality, geospatial)
+- Graceful degradation when API keys are missing
+- Mobile-responsive design considerations
+- Clean separation of concerns with API routes for data processing","- No license specified, limiting open-source adoption and contribution
+- Zero stars/forks indicates limited community engagement or visibility
+- Hackathon project may lack production-ready features and testing
+- Heavy dependency on external APIs (Mapbox, OpenAI) without clear fallback strategies
+- Limited documentation for deployment and production configuration
+- No testing framework or CI/CD setup mentioned",No,
+8.0,Aditii2112/FarmSage,https://github.com/Aditii2112/FarmSage,"AI-powered climate-smart crop planning system that helps farmers generate optimal crop strategies by simulating tradeoffs between water efficiency, yield maximization, and soil health. Uses multi-agent AI orchestration to provide ranked recommendations with composite KPI scoring tailored to real-world agricultural constraints.",Python + FastAPI + LangGraph + LangChain + Morph LLM + Pydantic + Vanilla JS,"FastAPI, LangGraph, LangChain, Morph LLM, Pydantic","- FastAPI (Web Framework): Provides the backend API server for handling requests and serving the agricultural planning system.
+- LangGraph (AI/ML): Orchestrates the multi-agent workflow with parallel strategy agents for water saving, yield priority, and carbon priority.
+- LangChain (AI/ML): Supports the AI agent framework and LLM integration for agricultural decision-making logic.
+- Morph LLM (AI/ML): Powers the language model capabilities for generating intelligent crop strategy recommendations.
+- Pydantic (Utility): Enforces structured JSON schemas and data validation for agent outputs and API responses.",5,9,6,8,7,"- Addresses critical real-world agricultural challenges with climate-smart solutions
+- Innovative multi-agent architecture using modern AI orchestration frameworks
+- Transparent composite KPI scoring system with constraint-weighted recommendations
+- Well-structured parallel agent design for water, yield, and carbon optimization
+- Clear system architecture documentation with workflow visualization","- Very new repository with no community engagement (0 stars, 0 forks)
+- Missing actual code implementation - only README documentation visible
+- No license specified which limits open-source adoption and contribution
+- Limited technical details on data sources and validation methodology
+- Dependency on proprietary Morph LLM API may create vendor lock-in concerns",No,
+9.0,Davis-Autonomy-Club/cesiumsim,https://github.com/Davis-Autonomy-Club/cesiumsim,"A high-fidelity first-person drone simulator built with CesiumJS and Three.js. It provides realistic drone flight controls with real-time terrain streaming, Google Photorealistic 3D Tiles, and a comprehensive HUD for educational or training purposes.",JavaScript + Three.js + CesiumJS + Vite + Various 3D Effects Libraries,"three, @takram/three-atmosphere, @takram/three-clouds, @takram/three-geospatial, @takram/three-geospatial-effects, astronomy-engine, postprocessing, vite","- three (3D Graphics): Core 3D rendering engine for the drone simulation and flight mechanics
+- @takram/three-atmosphere (3D Effects): Provides realistic atmospheric rendering effects for the simulation environment
+- @takram/three-clouds (3D Effects): Adds cloud rendering capabilities to enhance the visual realism of the sky
+- @takram/three-geospatial (Geospatial): Handles geospatial coordinate systems and mapping for real-world terrain integration
+- @takram/three-geospatial-effects (3D Effects): Provides additional geospatial-specific visual effects and rendering enhancements
+- astronomy-engine (Utility): Calculates astronomical data for realistic sun/moon positioning and lighting
+- postprocessing (3D Effects): Handles post-processing effects for enhanced visual quality and realism
+- vite (Build Tool): Modern build tool and development server for fast iteration and optimization",8,8,6,8,7,"- Innovative use case combining drone simulation with real-world terrain data
+- Sophisticated 3D graphics stack with atmospheric effects and geospatial integration
+- Comprehensive flight controls with realistic physics and HUD system
+- Integration with Google Photorealistic 3D Tiles for high-fidelity environments
+- Modern development setup with Vite for fast iteration","- No license specified which limits open-source adoption and contribution
+- Zero community engagement (0 stars, 0 forks) indicates limited visibility
+- Hardcoded API keys in source code is a security anti-pattern
+- Missing comprehensive documentation beyond basic setup instructions
+- No testing framework or CI/CD pipeline evident from the package.json",No,
+10.0,rahulkanagaraj786/CropGuard-AI,https://github.com/rahulkanagaraj786/CropGuard-AI,"An AI-powered agricultural assistant that helps farmers manage climate risks through a conversational chat interface, real-time weather intelligence, and smart farm planning tools. It provides crop risk assessment, plant health diagnosis, and farming recommendations to assist small and mid-size farmers with localized climate insights.",TypeScript + React 19 + Vite + Tailwind CSS + Google Gemini AI + Recharts,"@google/genai, react, framer-motion, recharts, tailwindcss, marked, vite, typescript","- @google/genai (AI/ML): Google Gemini API client for providing AI-powered agricultural chat assistance and plant health diagnosis
+- react (Web Framework): Core React library for building the user interface components
+- framer-motion (Utility): Animation library providing smooth transitions and interactive UI effects
+- recharts (Utility): Chart library for creating interactive radar charts to visualize crop risk assessments
+- tailwindcss (Utility): CSS framework providing the styling foundation and responsive design system
+- marked (Utility): Markdown parser for rendering formatted AI responses in the chat interface
+- vite (Build Tool): Fast build tool and development server for the TypeScript React application
+- typescript (Language): Type-safe JavaScript providing better development experience and code reliability",8,8,6,7,7,"- Addresses a real agricultural problem with practical AI-powered solutions
+- Well-structured frontend with modern React 19 and TypeScript
+- Comprehensive feature set including chat, risk assessment, and plant diagnosis
+- Good use of modern libraries like Framer Motion for animations and Recharts for data visualization
+- Detailed README with clear setup instructions and feature descriptions
+- Thoughtful UX improvements with toast notifications and interactive components","- No backend infrastructure - purely frontend implementation limits scalability
+- Missing environment configuration file (.env.local.example not shown)
+- No testing framework or tests implemented
+- Limited error handling and API failure scenarios not addressed
+- No user authentication or data persistence capabilities
+- Dependency on single AI provider (Gemini) without fallback options",No,
+11.0,sAVItar02/ClimateRiskMap,https://github.com/sAVItar02/ClimateRiskMap,"AgShield is a climate intelligence tool for farmers that analyzes crop risks using weather data, vegetation indices, and AI-generated insights. It provides real-time risk scoring and actionable recommendations to help farmers monitor and mitigate climate-related agricultural risks.",TypeScript + React + Vite + Tailwind CSS + Recharts + Google GenAI/OpenAI,"react, typescript, vite, @google/genai, openai, recharts, lucide-react, react-router","- react (Web Framework): Core frontend framework for building the user interface
+- typescript (Language): Provides static typing and enhanced developer experience
+- vite (Build Tool): Modern build tool and development server for fast compilation and hot reload
+- @google/genai (AI/ML): Google Gemini Pro integration for generating AI-powered agricultural insights
+- openai (AI/ML): OpenAI API client for additional AI capabilities and explanations
+- recharts (Data Visualization): Chart library for displaying weather data and risk analytics
+- lucide-react (UI Components): Icon library for consistent UI iconography
+- react-router (Navigation): Handles client-side routing for the single page application",8,8,6,7,7,"- Addresses a real-world problem with practical agricultural applications
+- Modern tech stack with latest React and TypeScript versions
+- Well-structured modular architecture with separate risk engine service
+- Integrates multiple data sources (weather APIs, NDVI, AI insights)
+- Clear documentation with setup instructions and extension guidance","- Hackathon prototype status suggests limited production readiness
+- No license specified despite README claiming MIT license
+- Zero stars/forks indicates no community adoption yet
+- Mock NDVI data instead of real satellite integration
+- No testing framework or CI/CD pipeline visible in dependencies",No,
+12.0,224-aadi/NGuard,https://github.com/224-aadi/NGuard,"A real-time agricultural nitrogen risk analysis dashboard that helps farmers and agricultural professionals assess nitrogen leaching probabilities, calculate economic exposure, and ensure regulatory compliance. Uses live weather data and geospatial analysis to provide actionable insights for sustainable farming practices.",TypeScript + Next.js 15 + React 19 + Leaflet + Recharts + TailwindCSS + Google Generative AI,"next, react, leaflet, react-leaflet, recharts, @google/generative-ai, tailwindcss, react-markdown, typescript","- next (Web Framework): Core React framework providing server-side rendering and full-stack capabilities for the dashboard
+- react (Frontend Framework): UI library for building the interactive dashboard components and user interface
+- leaflet (Mapping): Interactive mapping library for displaying geospatial field data and waterway locations
+- react-leaflet (Mapping): React integration for Leaflet maps to display agricultural fields and nearby waterways
+- recharts (Data Visualization): Chart library for visualizing nitrogen risk analysis and economic impact data
+- @google/generative-ai (AI/ML): Google's generative AI API for creating compliance memos and analytical reports
+- tailwindcss (CSS Framework): Utility-first CSS framework for responsive dashboard styling and layout
+- react-markdown (Content Rendering): Markdown renderer for displaying formatted compliance reports and documentation
+- typescript (Language): Type-safe JavaScript for robust calculation engine and API development",9,8,7,8,7,"- Addresses a critical real-world problem in sustainable agriculture and environmental compliance
+- Modern tech stack with latest versions of React 19 and Next.js 15
+- Well-structured API design with clear endpoints for different functionalities
+- Comprehensive feature set including geospatial analysis, weather integration, and economic modeling
+- Good separation of concerns with dedicated modules for calculations, economics, and API routes
+- Supports multiple file formats for field boundary uploads (shapefiles, GeoJSON, etc.)
+- Integration with OpenStreetMap Overpass API for waterway data","- No unit tests or testing framework despite complex calculation logic
+- Missing error handling and validation patterns in the codebase structure
+- No license specified, limiting adoption and contribution
+- Zero stars/forks indicates limited community engagement or visibility
+- Lacks authentication/authorization for potentially sensitive agricultural data
+- No database layer for persistence of analysis results or user data
+- Missing CI/CD pipeline and deployment configuration",No,
+13.0,himanshu-nimonkar/TerraMind,https://github.com/himanshu-nimonkar/TerraMind,"TerraMind is a multimodal agricultural intelligence system for Yolo County farmers that unifies satellite telemetry, weather forecasting, and research data into a conversational interface accessible via voice (phone) or text (web dashboard). It provides real-time precision agronomy advice for specific crops including almonds, tomatoes, wine grapes, rice, walnuts, and pistachios.",Python + FastAPI + React + Vite + Google Earth Engine + ChromaDB + Cloudflare AI + Vapi.ai + LangChain,"FastAPI, React 18, Google Earth Engine, ChromaDB, Vapi.ai, Cloudflare Workers AI, LangChain, Sentence Transformers","- FastAPI (Web Framework): Serves as the central nervous system handling intent classification, tool execution, and session state management
+- React 18 (Frontend Framework): Powers the web dashboard with high-performance rendering and real-time visualization of satellite data
+- Google Earth Engine (Geospatial): Computes real-time NDVI/NDWI satellite indices for specific agricultural coordinates
+- ChromaDB (Database): Lightweight vector database storing indexed PDF research from UC ANR and UC IPM for RAG system
+- Vapi.ai (Voice AI): Manages voice interactions via PSTN calls with speech-to-text and text-to-speech capabilities
+- Cloudflare Workers AI (AI/ML): Provides low-latency inference using Llama 3.1 8B model for agricultural reasoning
+- LangChain (AI/ML): Orchestrates AI agents and manages prompts for the reasoning engine
+- Sentence Transformers (AI/ML): Creates document embeddings using all-MiniLM-L6-v2 model for vector search capabilities",8,8,7,8,7,"- Addresses a real-world problem in precision agriculture with clear domain constraints
+- Well-architected system with proper separation between interaction, orchestration, intelligence, and data layers
+- Modern tech stack combining cutting-edge AI services (Cloudflare AI, Vapi.ai) with proven frameworks
+- Multimodal interface design (voice + text) optimized for field conditions
+- Comprehensive documentation with clear architecture diagrams and technology justifications","- Zero stars and forks indicate limited adoption or recent creation
+- No license specified which may limit commercial or collaborative use
+- Appears to be a prototype or early-stage project without proven deployment
+- Complex architecture may be over-engineered for the current scope
+- Missing implementation details and code examples in the repository analysis",No,
+14.0,exclipse123/CropBase,https://github.com/exclipse123/CropBase,CropBase is a farm operations dashboard that converts farm spreadsheets into a live operational command center. It allows farmers to upload Excel/CSV files and get a unified operational view while keeping Excel as the source of truth.,TypeScript + React + Vite + TailwindCSS + Radix UI + Material-UI,"@mui/material, @radix-ui/react-*, tailwindcss, react-hook-form, recharts, vite, react-router","- @mui/material (UI Framework): Material-UI components providing pre-built React components with Google's Material Design
+- @radix-ui/react-* (UI Components): Comprehensive collection of headless UI components for building accessible interfaces
+- tailwindcss (CSS Framework): Utility-first CSS framework for rapid UI development and styling
+- react-hook-form (Form Handling): Performant forms library with easy validation and minimal re-renders
+- recharts (Data Visualization): Composable charting library for displaying farm operational data and analytics
+- vite (Build Tool): Fast build tool and development server for modern web applications
+- react-router (Routing): Declarative routing library for React single-page applications",7,7,6,8,6,"- Addresses real-world problem for farmers transitioning from spreadsheets to digital tools
+- Modern tech stack with React, TypeScript, and current dependencies
+- Comprehensive UI component library with Radix UI for accessibility
+- Well-structured package.json with proper peer dependencies management","- No stars, forks, or community engagement indicating lack of adoption
+- Missing license limits commercial usage and contribution clarity
+- No repository topics or detailed documentation beyond basic README
+- Core functionality appears to be conceptual rather than fully implemented",No,
+15.0,joshirajaram/AggieScout-Hackathon-Feb13,https://github.com/joshirajaram/AggieScout-Hackathon-Feb13,"AggieScout is a Telegram bot that provides agricultural alerts for frost, heat, and normal conditions using Google's Gemini AI. It includes a multi-agent council system for comprehensive agricultural advice and recommendations.",Python + Telegram Bot + Google Gemini AI + Mock JSON Data,"requests, python-dotenv, google-genai, python-telegram-bot","- requests (HTTP Client): Handles HTTP requests for API communication
+- python-dotenv (Configuration): Manages environment variables for API keys and configuration
+- google-genai (AI/ML): Integrates Google's Gemini AI for generating agricultural alerts and recommendations
+- python-telegram-bot (Chat Bot): Provides Telegram bot functionality for user interaction and message handling",4,7,6,7,6,"- Addresses practical agricultural need for automated weather alerts
+- Well-structured modular design with clear separation of concerns
+- Good documentation with clear setup instructions and project layout
+- Innovative multi-agent council approach for comprehensive advice
+- Uses modern AI integration with Google Gemini
+- Apache-2.0 license promotes open source usage","- Hackathon project with likely limited production readiness
+- Uses mock sensor data instead of real agricultural sensors
+- Hardcoded Telegram token in code rather than environment variable
+- No error handling or fallback mechanisms visible
+- Limited testing or validation framework
+- No database persistence for user data or alert history",No,
+16.0,cagarwal27/farm-scout,https://github.com/cagarwal27/farm-scout,A hackathon project that uses satellite imagery change detection to automatically prioritize farm scouting missions. Helps farmers identify areas of their fields that need immediate attention based on satellite data analysis.,TypeScript + Node.js + Satellite imagery APIs,TypeScript,- TypeScript (Programming Language): Primary language for type-safe development of the satellite change detection system,1,8,4,5,5,"- Addresses a real agricultural problem with practical applications
+- Uses modern satellite imagery technology for precision farming
+- TypeScript provides type safety for reliable data processing
+- Innovative approach to farm management optimization","- Very early stage project with minimal activity (0 stars/forks)
+- No license specified, limiting commercial or collaborative use
+- Lack of detailed documentation or setup instructions
+- Limited visibility into actual implementation and technical architecture
+- No topic tags or detailed description for discoverability
+- Recent creation date suggests limited testing and validation",No,
+17.0,ArnavSharma2006/helios-green-sense,https://github.com/ArnavSharma2006/helios-green-sense.git,"A React-based web application built using the Lovable platform, likely focused on environmental sensing or green technology given the repository name. The project appears to be in early development with no specific description provided.",TypeScript + React + Vite + shadcn/ui + Tailwind CSS + Supabase + React Query,"react, vite, @supabase/supabase-js, @tanstack/react-query, tailwindcss, @radix-ui/react-*, react-hook-form, zod, framer-motion, recharts","- react (UI Framework): Core React library for building the user interface
+- vite (Build Tool): Fast build tool and development server for the React application
+- @supabase/supabase-js (Database): Backend-as-a-service client for authentication and data management
+- @tanstack/react-query (State Management): Data fetching and caching library for React applications
+- tailwindcss (Styling): Utility-first CSS framework for styling the application
+- @radix-ui/react-* (UI Components): Comprehensive collection of accessible UI primitives through shadcn/ui
+- react-hook-form (Form Management): Performant form library with minimal re-renders
+- zod (Validation): TypeScript-first schema validation library
+- framer-motion (Animation): Production-ready motion library for React animations
+- recharts (Data Visualization): Composable charting library for displaying data visualizations",10,4,6,8,5,"- Modern and well-chosen technology stack with TypeScript, React, and Vite
+- Comprehensive UI component library with shadcn/ui and Radix UI primitives
+- Good development tooling with ESLint, testing setup, and TypeScript
+- Contemporary state management and data fetching with React Query
+- Includes accessibility-focused UI components and proper form handling","- No clear project description or documentation about the actual functionality
+- Repository appears to be a template or boilerplate with placeholder content
+- Zero stars and forks indicate no community engagement or validation
+- Missing license and project-specific documentation
+- Generic package name suggests this may be a fork of a template rather than original work",No,
+18.0,Dannykcw/WattWait,https://github.com/Dannykcw/WattWait,"An Android application built with Kotlin and Jetpack Compose. Based on the name 'WattWait', it likely relates to energy monitoring or power management functionality.",Kotlin + Android + Jetpack Compose + Hilt (DI) + KSP,"Android Gradle Plugin, Kotlin Android Plugin, Kotlin Compose Plugin, Hilt, KSP (Kotlin Symbol Processing)","- Android Gradle Plugin (Build Tool): Handles Android-specific build configurations and compilation processes.
+- Kotlin Android Plugin (Language Support): Enables Kotlin language support for Android development.
+- Kotlin Compose Plugin (UI Framework): Provides Jetpack Compose compiler and runtime for modern Android UI development.
+- Hilt (Dependency Injection): Google's dependency injection framework built on top of Dagger for Android applications.
+- KSP (Kotlin Symbol Processing) (Code Generation): Kotlin-native annotation processing tool for generating code at compile time.",5,4,3,7,4,"- Uses modern Android development stack with Jetpack Compose
+- Implements dependency injection with Hilt for maintainable architecture
+- Utilizes KSP for efficient annotation processing
+- Well-structured build configuration following Android best practices","- No repository description or documentation available
+- Zero stars and forks indicate no community engagement
+- Missing license makes legal usage unclear
+- No topics or tags for discoverability
+- Cannot assess actual implementation quality without source code",No,
+19.0,arnavakula/promptr-c0mpiled,https://github.com/arnavakula/promptr-c0mpiled,"This appears to be a Python project related to prompt processing or compilation, though the exact purpose is unclear due to lack of description and documentation. The repository seems to be in early development stages with minimal visibility.",Python (specific frameworks and libraries unknown),Unknown,- Unknown (Unknown): Cannot determine modules without access to repository contents.,1,3,2,3,3,"- Uses Python which is versatile for various applications
+- Recently updated indicating active development","- No repository description provided
+- Zero stars and forks indicating no community engagement
+- No license specified creating legal uncertainty
+- No topics or tags making it hard to discover
+- Appears to be private or have limited documentation
+- Cannot assess actual code quality without repository access",No,
+20.0,SaiChamarty/AlmondOps,https://github.com/SaiChamarty/AlmondOps,AI-powered agricultural application designed to help almond farmers identify and mitigate climatic risks early to reduce crop losses and improve quality. Targets the agricultural technology sector with focus on precision farming and climate adaptation.,TypeScript (primary language indicated),,,0,8,2,1,3,"- Addresses important agricultural challenge with climate risk mitigation
+- Targets specific crop (almonds) allowing for specialized solutions
+- AI-focused approach aligns with modern agricultural technology trends
+- Potential for significant economic impact in agriculture sector","- No visible code structure or dependencies to assess
+- Minimal README with no technical details or implementation information
+- No stars, forks, or community engagement
+- No license specified which limits reusability and collaboration
+- Very recent repository with no apparent development history
+- Lacks documentation on AI models, data sources, or technical architecture
+- No evidence of actual implementation or working prototype",No,
+21.0,sidkilledar/Weedr2.0,https://github.com/sidkilledar/Weedr2.0,A web crawler application designed to detect the sale of invasive plants online by scraping California Department of Food and Agriculture (CDFA) databases. The tool aims to help identify and monitor the illegal sale of restricted invasive plant species.,HTML + Web Scraping (specific backend technology unclear),HTML Interface,- HTML Interface (Web Frontend): Provides the user interface for displaying invasive plant data and crawler results,1,7,2,3,3,"- Addresses an important environmental and regulatory compliance issue
+- Targets a specific, well-defined problem with clear data sources (CDFA databases)
+- Has practical applications for environmental protection and law enforcement","- Extremely incomplete implementation with minimal code present
+- No clear technical architecture or implementation details provided
+- Missing critical components like actual web scraping logic, data processing, and backend infrastructure
+- No documentation of dependencies, setup instructions, or usage guidelines
+- Appears to be in very early development stage with no functional features",No,
+22.0,KavinLAH/Climate_Stack,https://github.com/KavinLAH/Climate_Stack/,"A TypeScript-based project related to climate data or environmental monitoring, though specific functionality is unclear from the limited repository information. Appears to be in early development with minimal documentation.","TypeScript (primary language, other dependencies unknown)",TypeScript,- TypeScript (Programming Language): Primary language for type-safe JavaScript development,1,6,3,4,3,"- Uses TypeScript for better type safety and code maintainability
+- Climate-related projects have high social and environmental impact potential
+- Recently updated showing active development","- No repository description or documentation available
+- No README or clear project structure visible
+- Zero stars and forks indicate no community engagement
+- No license specified limiting usage and contributions
+- Lack of topics/tags makes project discovery difficult
+- Cannot assess actual code quality or architecture without file access",No,
+23.0,klunavalladolid-dotcom/Interlock---Earth-Block,https://github.com/klunavalladolid-dotcom/Interlock---Earth-Block,"Repository appears to be related to interlocking earth blocks, possibly for construction or building materials. However, the minimal description and lack of visible code make the exact purpose unclear.",Unknown - no primary language detected,,,0,3,1,1,2,"- Recently updated (2026-02-14)
+- Potentially addresses sustainable construction methods","- No code visible or primary language detected
+- Extremely minimal repository description
+- No license specified
+- Zero community engagement (0 stars, 0 forks)
+- No topics or tags for discoverability
+- Appears to be in very early development stage
+- No clear documentation or README visible",No,
+24.0,hishaan08/c0mpiled,https://github.com/hishaan08/c0mpiled,"Unable to determine specific purpose from available information. This appears to be a JavaScript project with no description, documentation, or clear indication of its functionality.",JavaScript (primary language not specified further),Unknown,- Unknown (Unknown): Cannot identify specific modules without access to package.json or source code,1,1,2,2,2,"- Recently updated (February 2026)
+- Uses JavaScript which is widely adopted","- No repository description provided
+- No README or documentation visible
+- Zero stars and forks indicate no community engagement
+- No license specified
+- No topics/tags for discoverability
+- Cannot assess actual functionality or code quality without source access
+- No clear indication of project purpose or target audience",No,
+25.0,Rithika345/bon.AI.ne,https://github.com/Rithika345/bon.AI.ne,"Unable to determine project purpose due to lack of description, README, or accessible repository content. The name suggests it may be an AI-related project with a play on 'bonaine' or 'bon AI'.","Python (language specified, but specific frameworks/libraries unknown)",Unknown,- Unknown (Unknown): Cannot determine modules or dependencies without access to repository contents.,1,2,2,3,2,"- Uses Python which is a solid choice for AI/ML projects
+- Recently updated (February 2026) suggesting active development","- No repository description provided
+- Zero stars and forks indicating no community engagement
+- No license specified creating legal uncertainty
+- No topics/tags making it hard to discover
+- Unable to assess actual code quality, structure, or dependencies
+- Lacks documentation or README for understanding the project",No,
+,Unknown,https://github.com/ArnavSharma2006/,Could not analyze — scraping failed,N/A,,,0,0,0,0,0,N/A,- Failed to scrape repository data,No,Could not parse GitHub URL: https://github.com/ArnavSharma2006
+,hackathon,https://github.com/zinp5/hackathon,Could not analyze — scraping failed,N/A,,,0,0,0,0,0,N/A,- Failed to scrape repository data,No,Failed to fetch repo: HTTP 404
